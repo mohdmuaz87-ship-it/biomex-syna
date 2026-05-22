@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BIOMEX SYNA — Cantik Dari Dalam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --cream:#FAF7F2;
+  --deep:#0E0C0A;
+  --ink:#1C1814;
+  --muted:#7A6E62;
+  --gold:#C9941A;
+  --gold-light:#F0D080;
+  --gold-pale:#FBF3DC;
+  --teal:#1A8A6E;
+  --teal-light:#E0F5EF;
+  --coral:#D05038;
+  --coral-light:#FAEAE6;
+  --rule:#E8E0D4;
+  --white:#FFFFFF;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── UTILITIES ── */
+.container{max-width:860px;margin:0 auto;padding:0 24px}
+.container-wide{max-width:1060px;margin:0 auto;padding:0 24px}
+.serif{font-family:'Playfair Display',serif}
+.serif-display{font-family:'DM Serif Display',serif}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:.9rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(250,247,242,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:700;
+  color:var(--ink);text-decoration:none;letter-spacing:-.01em;
+}
+.nav-brand span{color:var(--gold)}
+.nav-cta{
+  background:var(--gold);color:var(--white);
+  font-size:.8rem;font-weight:500;letter-spacing:.06em;
+  padding:.55rem 1.4rem;border-radius:100px;text-decoration:none;
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:#A87A10;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;place-items:center;
+  padding:7rem 2rem 5rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 30%, #F5EDD8 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 80% 70%, #E0F5EF 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1.4rem;
+  opacity:0;animation:fadeUp .7s .2s ease forwards;
+}
+.kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,8vw,5.2rem);
+  line-height:1.1;font-weight:900;
+  letter-spacing:-.03em;
+  max-width:780px;margin:0 auto 1.4rem;
+  opacity:0;animation:fadeUp .7s .35s ease forwards;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero h1 span{display:block;font-size:.6em;font-weight:700;color:var(--coral)}
+.hero-sub{
+  font-size:1.1rem;color:var(--muted);max-width:520px;
+  margin:0 auto 2.8rem;font-weight:300;
+  opacity:0;animation:fadeUp .7s .5s ease forwards;
+}
+.hero-btns{
+  display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .7s .65s ease forwards;
+}
+.btn-primary{
+  background:var(--deep);color:var(--white);
+  font-size:.88rem;font-weight:500;letter-spacing:.04em;
+  padding:1rem 2.4rem;border-radius:100px;text-decoration:none;
+  transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:var(--gold);transform:translateY(-2px)}
+.btn-wa{
+  background:#25D366;color:var(--white);
+  font-size:.88rem;font-weight:500;letter-spacing:.04em;
+  padding:1rem 2.4rem;border-radius:100px;text-decoration:none;
+  display:flex;align-items:center;gap:.5rem;
+  transition:background .2s,transform .15s;
+}
+.btn-wa:hover{background:#1AAE52;transform:translateY(-2px)}
+
+/* ── PAIN (P) ── */
+.pain-section{
+  background:var(--deep);
+  padding:6rem 2rem;
+  position:relative;overflow:hidden;
+}
+.pain-section::before{
+  content:'';position:absolute;top:-40px;left:0;right:0;
+  height:80px;background:var(--cream);
+  clip-path:ellipse(55% 80px at 50% 0%);
+}
+.pain-section::after{
+  content:'';position:absolute;bottom:-40px;left:0;right:0;
+  height:80px;background:var(--coral-light);
+  clip-path:ellipse(55% 80px at 50% 100%);
+}
+.section-label{
+  font-size:.72rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:1rem;
+}
+.pain-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,3.2rem);
+  line-height:1.2;font-weight:700;letter-spacing:-.02em;
+  color:var(--white);margin-bottom:1.2rem;
+}
+.pain-section h2 em{font-style:italic;color:var(--gold-light)}
+.pain-section .lead{
+  color:rgba(255,255,255,.55);font-weight:300;
+  font-size:1.05rem;margin-bottom:3rem;max-width:580px;
+}
+.pain-symptoms{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.2rem;
+}
+.symptom-card{
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;padding:1.6rem;
+  background:rgba(255,255,255,.04);
+  display:flex;gap:1rem;align-items:flex-start;
+  transition:border-color .2s;
+}
+.symptom-card:hover{border-color:rgba(201,148,26,.4)}
+.symptom-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:rgba(201,148,26,.15);
+  display:grid;place-items:center;font-size:1.2rem;flex-shrink:0;
+}
+.symptom-card h4{font-size:.95rem;font-weight:500;color:var(--white);margin-bottom:.25rem}
+.symptom-card p{font-size:.85rem;color:rgba(255,255,255,.45);font-weight:300;line-height:1.6}
+
+/* ── AGITATE (A) ── */
+.agitate-section{background:var(--coral-light);padding:6rem 2rem}
+.agitate-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4.5vw,2.8rem);
+  line-height:1.2;font-weight:700;letter-spacing:-.02em;
+  margin-bottom:.8rem;
+}
+.agitate-section h2 em{font-style:italic;color:var(--coral)}
+.agitate-section .lead{color:var(--muted);font-size:1.05rem;font-weight:300;margin-bottom:3rem}
+.agitate-timeline{display:flex;flex-direction:column;gap:0}
+.timeline-item{display:grid;grid-template-columns:64px 1fr;gap:1rem}
+.timeline-left{display:flex;flex-direction:column;align-items:center}
+.timeline-dot{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--coral);display:grid;place-items:center;
+  font-weight:700;font-size:.9rem;color:var(--white);flex-shrink:0;
+}
+.timeline-line{width:2px;flex:1;min-height:2rem;background:rgba(208,80,56,.2);margin:.3rem 0}
+.timeline-item:last-child .timeline-line{display:none}
+.timeline-content{padding:.3rem 0 2.2rem}
+.timeline-content h4{
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem;font-weight:400;margin-bottom:.35rem;color:var(--coral)
+}
+.timeline-content p{font-size:.92rem;color:var(--muted);font-weight:300}
+
+/* ── SOLUTION (S) ── */
+.solution-intro{
+  background:var(--white);
+  padding:6rem 2rem;
+  text-align:center;
+  border-top:1px solid var(--rule);
+}
+.solution-intro h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,3.4rem);
+  line-height:1.15;font-weight:900;
+  letter-spacing:-.03em;margin-bottom:1rem;
+}
+.solution-intro h2 em{font-style:italic;color:var(--gold)}
+.solution-intro .lead{
+  color:var(--muted);font-size:1.1rem;font-weight:300;
+  max-width:560px;margin:0 auto 2.5rem;
+}
+.product-badge{
+  display:inline-block;background:var(--gold-pale);
+  color:var(--gold);font-size:.75rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:.4rem 1.2rem;border-radius:100px;
+  border:1px solid rgba(201,148,26,.3);
+  margin-bottom:1.4rem;
+}
+
+/* ── INFOGRAPHIC ── */
+.infographic-section{background:var(--cream);padding:5rem 2rem}
+.infographic-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  line-height:1.2;font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem;
+}
+.infographic-section .lead{color:var(--muted);font-size:1rem;font-weight:300;margin-bottom:2.5rem}
+
+/* ── SVG infographic ── */
+.infographic-wrap svg{width:100%;height:auto}
+@keyframes flow-svg{0%{stroke-dashoffset:40}100%{stroke-dashoffset:0}}
+@keyframes pulse-dot{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes crack-draw{0%{opacity:0;stroke-dashoffset:30}100%{opacity:1;stroke-dashoffset:0}}
+@media(prefers-reduced-motion:no-preference){
+  .fl{stroke-dasharray:8 6;animation:flow-svg 1.5s linear infinite}
+  .pd{animation:pulse-dot 1.8s ease-in-out infinite}
+  .cr{stroke-dasharray:30;animation:crack-draw .9s ease forwards}
+}
+
+/* ── INGREDIENTS ── */
+.ingredients-section{background:var(--deep);padding:6rem 2rem}
+.ingredients-section .section-label{color:var(--gold-light)}
+.ingredients-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  line-height:1.2;font-weight:700;letter-spacing:-.02em;
+  color:var(--white);margin-bottom:.8rem;
+}
+.ingredients-section h2 em{font-style:italic;color:var(--gold-light)}
+.ingredients-section .intro{color:rgba(255,255,255,.5);font-weight:300;font-size:1rem;margin-bottom:3rem}
+.ing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
+.ing-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;padding:2rem;
+  transition:border-color .25s,transform .2s;
+}
+.ing-card:hover{border-color:rgba(201,148,26,.5);transform:translateY(-4px)}
+.ing-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:grid;place-items:center;font-size:1.5rem;
+  margin-bottom:1.2rem;
+}
+.ing-card h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem;font-weight:400;color:var(--white);
+  margin-bottom:.3rem;
+}
+.ing-card .ing-sub{font-size:.78rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem}
+.ing-card p{font-size:.88rem;color:rgba(255,255,255,.5);font-weight:300;line-height:1.7}
+.ing-badge{
+  display:inline-block;margin-top:1rem;font-size:.7rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:.25rem .75rem;border-radius:100px;
+}
+.badge-skin{background:rgba(240,153,123,.15);color:#F0997B}
+.badge-gut{background:rgba(26,138,110,.15);color:#5DCAA5}
+.badge-glow{background:rgba(201,148,26,.15);color:#EF9F27}
+.badge-repair{background:rgba(127,119,221,.15);color:#AFA9EC}
+
+/* ── PRICE / OFFER ── */
+.offer-section{
+  background:var(--white);
+  padding:6rem 2rem;text-align:center;
+  border-top:1px solid var(--rule);
+}
+.offer-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  line-height:1.2;font-weight:700;letter-spacing:-.02em;
+  margin-bottom:.6rem;
+}
+.offer-section h2 em{font-style:italic;color:var(--gold)}
+.offer-section .lead{color:var(--muted);font-size:1rem;font-weight:300;margin-bottom:2.8rem}
+.price-card{
+  max-width:460px;margin:0 auto 3rem;
+  background:var(--deep);
+  border-radius:24px;padding:2.4rem;
+  border:2px solid rgba(201,148,26,.4);
+  position:relative;overflow:hidden;
+}
+.price-card::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,148,26,.2),transparent 70%);
+  pointer-events:none;
+}
+.price-label{font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block}
+.price-main{
+  font-family:'Playfair Display',serif;
+  font-size:4rem;font-weight:900;color:var(--white);
+  line-height:1;letter-spacing:-.03em;margin-bottom:.2rem;
+}
+.price-main sup{font-size:2rem;vertical-align:super}
+.price-sub{font-size:.9rem;color:rgba(255,255,255,.45);margin-bottom:1.6rem}
+.price-features{list-style:none;text-align:left;margin-bottom:2rem}
+.price-features li{
+  display:flex;align-items:center;gap:.7rem;
+  font-size:.88rem;color:rgba(255,255,255,.7);
+  padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.07);
+}
+.price-features li:last-child{border-bottom:none}
+.check{
+  width:20px;height:20px;border-radius:50%;
+  background:rgba(26,138,110,.25);
+  display:grid;place-items:center;flex-shrink:0;color:#5DCAA5;font-size:.7rem;
+}
+.btn-buy{
+  display:block;width:100%;background:var(--gold);
+  color:var(--white);font-size:.95rem;font-weight:500;
+  letter-spacing:.05em;padding:1.1rem;border-radius:100px;
+  text-decoration:none;text-align:center;
+  transition:background .2s,transform .15s;
+}
+.btn-buy:hover{background:#A87A10;transform:translateY(-2px)}
+.offer-wa{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:#25D366;color:var(--white);
+  font-size:.9rem;font-weight:500;letter-spacing:.04em;
+  padding:.9rem 2.2rem;border-radius:100px;text-decoration:none;
+  transition:background .2s,transform .15s;
+  margin-top:1rem;
+}
+.offer-wa:hover{background:#1AAE52;transform:translateY(-2px)}
+
+/* ── TESTIMONIALS ── */
+.testi-section{background:var(--gold-pale);padding:6rem 2rem}
+.testi-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  line-height:1.2;font-weight:700;letter-spacing:-.02em;
+  margin-bottom:.6rem;text-align:center;
+}
+.testi-section h2 em{font-style:italic;color:var(--gold)}
+.testi-section .lead{color:var(--muted);font-size:1rem;font-weight:300;margin-bottom:3rem;text-align:center}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
+.testi-card{
+  background:var(--white);border-radius:16px;padding:1.8rem;
+  border:1px solid rgba(201,148,26,.2);
+}
+.stars{color:var(--gold);font-size:.9rem;letter-spacing:.1rem;margin-bottom:1rem}
+.testi-card p{font-size:.9rem;color:var(--muted);font-style:italic;line-height:1.7;margin-bottom:1.2rem}
+.testi-author{display:flex;align-items:center;gap:.7rem}
+.testi-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--gold-pale);border:2px solid var(--gold);
+  display:grid;place-items:center;font-size:1rem;flex-shrink:0;
+}
+.testi-name{font-size:.85rem;font-weight:500;color:var(--ink)}
+.testi-loc{font-size:.75rem;color:var(--muted)}
+
+/* ── DISCLAIMER ── */
+.disclaimer{
+  background:var(--cream);padding:3rem 2rem;
+  border-top:1px solid var(--rule);
+}
+.disclaimer p{
+  font-size:.75rem;color:var(--muted);text-align:center;
+  max-width:640px;margin:0 auto;line-height:1.7;
+}
+
+/* ── FLOATING WA ── */
+.float-wa{
+  position:fixed;bottom:2rem;right:2rem;z-index:200;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  text-decoration:none;transition:transform .2s;
+}
+.float-wa:hover{transform:scale(1.1)}
+.float-wa svg{width:28px;height:28px;fill:white}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--deep);padding:3rem 2rem;text-align:center;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;
+  color:var(--white);margin-bottom:.5rem;
+}
+.footer-brand span{color:var(--gold)}
+footer p{font-size:.8rem;color:rgba(255,255,255,.3);font-weight:300;margin-top:.4rem}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+  nav{padding:.8rem 1.2rem}
+  .nav-links{display:none}
+  .hero h1{font-size:2.6rem}
+  .float-wa{bottom:1.2rem;right:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">BIOMEX <span>SYNA</span></a>
+  <a href="https://www.biomex.my/" target="_blank" class="nav-cta">Beli Sekarang</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div>
+    <span class="hero-kicker"><span class="kicker-dot"></span>Cantik Bermula Dari Dalam<span class="kicker-dot"></span></span>
+    <h1>Kulit <em>Cerah &amp; Bermaya</em><span>Bila Usus Sihat</span></h1>
+    <p class="hero-sub">Ramai yang berjuang dengan jerawat, kulit kusam &amp; tidak berseri — tanpa tahu punca sebenarnya tersembunyi di dalam usus mereka.</p>
+    <div class="hero-btns">
+      <a href="https://www.biomex.my/" target="_blank" class="btn-primary">Dapatkan SYNA — RM129</a>
+      <a href="https://wa.me/601175930133" target="_blank" class="btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Tanya Kami
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- P: PROBLEM -->
+<section class="pain-section">
+  <div class="container">
+    <span class="section-label reveal">Adakah Ini Masalah Anda?</span>
+    <h2 class="reveal">Anda Dah Cuba<br/><em>Pelbagai Cara</em>… Tapi Masih Sama?</h2>
+    <p class="lead reveal">Beli krim mahal. Tukar skincare. Minum lebih air. Tapi jerawat tetap datang, kulit tetap kusam. Sebabnya — anda merawat gejala, bukan punca sebenar.</p>
+    <div class="pain-symptoms">
+      <div class="symptom-card reveal reveal-delay-1">
+        <div class="symptom-icon">😔</div>
+        <div>
+          <h4>Jerawat yang datang &amp; pergi</h4>
+          <p>Hilang sekejap, muncul balik di tempat lain. Sudah habis duit tapi masalah masih sama.</p>
+        </div>
+      </div>
+      <div class="symptom-card reveal reveal-delay-2">
+        <div class="symptom-icon">🪞</div>
+        <div>
+          <h4>Kulit kusam &amp; tidak berseri</h4>
+          <p>Walaupun cukup tidur &amp; minum air, muka tetap nampak penat &amp; gelap.</p>
+        </div>
+      </div>
+      <div class="symptom-card reveal reveal-delay-3">
+        <div class="symptom-icon">😫</div>
+        <div>
+          <h4>Perut tidak selesa</h4>
+          <p>Kembung, sembelit, atau cirit-birit yang berulang. Rasa penat walaupun baru bangun tidur.</p>
+        </div>
+      </div>
+      <div class="symptom-card reveal reveal-delay-4">
+        <div class="symptom-icon">💸</div>
+        <div>
+          <h4>Wang habis, keyakinan menurun</h4>
+          <p>Dah belanja berpuluh ringgit untuk skincare tapi hasilnya tidak seperti yang dijanjikan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A: AGITATE -->
+<section class="agitate-section">
+  <div class="container">
+    <span class="section-label reveal" style="color:var(--coral)">Ini Punca Sebenarnya</span>
+    <h2 class="reveal">Kulit Anda Hanya<br/><em>Menjerit Minta Tolong</em></h2>
+    <p class="lead reveal">Jerawat &amp; kulit kusam bukan masalah kulit — ia adalah mesej daripada usus anda yang sakit. Inilah yang sebenarnya berlaku dalam badan anda:</p>
+    <div class="agitate-timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-left"><div class="timeline-dot">1</div><div class="timeline-line"></div></div>
+        <div class="timeline-content">
+          <h4>Usus bocor — pagar pertahanan runtuh</h4>
+          <p>Stress, makanan diproses &amp; gula berlebihan merosakkan dinding usus. Toksin berbahaya seperti LPS mula meresap masuk ke dalam darah.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-left"><div class="timeline-dot">2</div><div class="timeline-line"></div></div>
+        <div class="timeline-content">
+          <h4>Toksin merebak ke seluruh badan</h4>
+          <p>Sistem imun bertindak balas dengan mengeluarkan sitokin — bahan radang yang merebak termasuk ke lapisan kulit anda.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-left"><div class="timeline-dot">3</div><div class="timeline-line"></div></div>
+        <div class="timeline-content">
+          <h4>Hormon kulit menjadi gila</h4>
+          <p>Androgen &amp; insulin naik, merangsang kelenjar minyak bekerja melampau. Hasilnya — pori tersumbat, jerawat meradang, kulit berminyak.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-left"><div class="timeline-dot">4</div><div class="timeline-line"></div></div>
+        <div class="timeline-content">
+          <h4>Kecantikan kulit terjejas sepenuhnya</h4>
+          <p>Jerawat, eczema, kulit kusam — semua ini bukan nasib. Ia adalah tanda usus anda memerlukan bantuan segera.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S: SOLUTION INTRO -->
+<section class="solution-intro">
+  <div class="container">
+    <span class="product-badge reveal">Penyelesaian Saintifik</span>
+    <h2 class="reveal">Perkenalkan<br/><em>BIOMEX SYNA</em></h2>
+    <p class="lead reveal">Formula saintifik pertama yang menyerang punca sebenar masalah kulit — melalui pemulihan usus dari dalam. Cantik bukan ditampal, ia dibina.</p>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC -->
+<section class="infographic-section">
+  <div class="container-wide">
+    <span class="section-label reveal">Gut-Skin Axis</span>
+    <h2 class="reveal">Bagaimana SYNA Memutuskan Kitaran Ini</h2>
+    <p class="lead reveal">Faham proses ini — dan anda akan faham kenapa rawatan dari luar tidak pernah mencukupi.</p>
+    <div class="infographic-wrap reveal">
+      <svg width="100%" viewBox="0 0 680 1160" role="img">
+        <title>Proses Usus Tak Sihat Menyebabkan Kulit Breakout dan Bagaimana SYNA Membantu</title>
+        <desc>Infografik 4 langkah menunjukkan hubungan antara usus bocor, toksin dalam darah, sistem imun, dan masalah kulit</desc>
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#F5C4A0"/>
+            <stop offset="100%" stop-color="#E8A880"/>
+          </linearGradient>
+        </defs>
+
+        <!-- HEADER -->
+        <rect x="20" y="16" width="640" height="68" rx="14" fill="#0E0C0A"/>
+        <text font-family="'Playfair Display',serif" font-size="17" font-weight="700" x="340" y="42" text-anchor="middle" fill="#FAF7F2">Usus Tak Sihat → Kulit Breakout</text>
+        <text font-family="'DM Sans',sans-serif" font-size="12" x="340" y="64" text-anchor="middle" fill="#C9941A">Gut-Skin Axis — Proses Langkah demi Langkah</text>
+
+        <!-- STEP 1 -->
+        <circle cx="58" cy="134" r="19" fill="#1A8A6E"/>
+        <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" x="58" y="139" text-anchor="middle" fill="#E0F5EF">1</text>
+        <text font-family="'Playfair Display',serif" font-size="14" font-weight="700" x="90" y="128" fill="#0E0C0A">Usus Rosak — "Pagar" Bocor</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" x="90" y="146" fill="#1A8A6E">Leaky Gut — sambungan sel longgar</text>
+
+        <!-- gut tube -->
+        <rect x="110" y="164" width="448" height="96" rx="48" fill="#9FE1CB" stroke="#1D9E75" stroke-width="2"/>
+        <rect x="126" y="179" width="416" height="66" rx="33" fill="#E1F5EE"/>
+        <!-- healthy cells -->
+        <rect x="138" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="170" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="202" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <!-- cracked cells -->
+        <rect x="238" y="179" width="22" height="66" rx="4" fill="#F09595" opacity=".85"/>
+        <line x1="249" y1="179" x2="249" y2="245" stroke="#E24B4A" stroke-width="2" stroke-dasharray="4 3" class="cr"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="249" y="172" text-anchor="middle" fill="#A32D2D">bocor!</text>
+        <!-- more cells -->
+        <rect x="266" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="298" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="330" y="179" width="22" height="66" rx="4" fill="#F09595" opacity=".85"/>
+        <line x1="341" y1="179" x2="341" y2="245" stroke="#E24B4A" stroke-width="2" stroke-dasharray="4 3" class="cr"/>
+        <rect x="358" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="390" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="422" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="454" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <rect x="486" y="179" width="26" height="66" rx="4" fill="#5DCAA5" opacity=".7"/>
+        <!-- bacteria circles -->
+        <circle cx="185" cy="212" r="8" fill="#0F6E56" opacity=".5"/>
+        <circle cx="185" cy="212" r="4" fill="#E1F5EE" opacity=".9"/>
+        <circle cx="310" cy="206" r="7" fill="#E24B4A" opacity=".75" class="pd"/>
+        <circle cx="326" cy="220" r="5" fill="#E24B4A" opacity=".65" class="pd" style="animation-delay:.4s"/>
+        <circle cx="410" cy="212" r="7" fill="#0F6E56" opacity=".5"/>
+        <circle cx="410" cy="212" r="3" fill="#E1F5EE" opacity=".9"/>
+        <!-- legend -->
+        <circle cx="115" cy="273" r="6" fill="#5DCAA5"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="126" y="277" fill="#085041">Sel sihat</text>
+        <circle cx="198" cy="273" r="6" fill="#F09595"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="209" y="277" fill="#A32D2D">Sel bocor</text>
+        <circle cx="284" cy="273" r="6" fill="#E24B4A" opacity=".75"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="295" y="277" fill="#791F1F">Bakteria jahat</text>
+        <circle cx="390" cy="273" r="6" fill="#0F6E56" opacity=".6"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="401" y="277" fill="#085041">Bakteria baik</text>
+
+        <!-- arrow 1→2 -->
+        <line x1="340" y1="290" x2="340" y2="318" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- STEP 2 -->
+        <circle cx="58" cy="342" r="19" fill="#BA7517"/>
+        <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" x="58" y="347" text-anchor="middle" fill="#FAEEDA">2</text>
+        <text font-family="'Playfair Display',serif" font-size="14" font-weight="700" x="90" y="336" fill="#0E0C0A">Toksin Masuk ke Dalam Darah</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" x="90" y="354" fill="#BA7517">LPS &amp; bakteria jahat meresap masuk</text>
+
+        <!-- blood vessel -->
+        <rect x="110" y="372" width="448" height="86" rx="43" fill="#F7C1C1" stroke="#E24B4A" stroke-width="2"/>
+        <rect x="126" y="386" width="416" height="58" rx="29" fill="#FCEBEB"/>
+        <!-- flow lines animated -->
+        <line x1="150" y1="415" x2="310" y2="415" stroke="#E24B4A" stroke-width="1.5" opacity=".4" class="fl"/>
+        <line x1="190" y1="403" x2="370" y2="403" stroke="#E24B4A" stroke-width="1" opacity=".3" class="fl" style="animation-delay:.4s"/>
+        <line x1="170" y1="428" x2="340" y2="428" stroke="#E24B4A" stroke-width="1" opacity=".3" class="fl" style="animation-delay:.8s"/>
+        <!-- toxin particles -->
+        <circle cx="210" cy="415" r="7" fill="#EF9F27" opacity=".85" class="pd"/>
+        <circle cx="290" cy="403" r="6" fill="#EF9F27" opacity=".75" class="pd" style="animation-delay:.5s"/>
+        <circle cx="370" cy="420" r="7" fill="#EF9F27" opacity=".85" class="pd" style="animation-delay:1s"/>
+        <circle cx="440" cy="408" r="5" fill="#EF9F27" opacity=".7" class="pd" style="animation-delay:.3s"/>
+        <circle cx="490" cy="425" r="6" fill="#EF9F27" opacity=".8" class="pd" style="animation-delay:.7s"/>
+        <text font-family="'DM Sans',sans-serif" font-size="11" x="340" y="476" text-anchor="middle" fill="#633806">LPS (toksin) mengalir dalam darah — mencetuskan penggera radang</text>
+
+        <!-- arrow 2→3 -->
+        <line x1="340" y1="490" x2="340" y2="518" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- STEP 3 -->
+        <circle cx="58" cy="542" r="19" fill="#534AB7"/>
+        <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" x="58" y="547" text-anchor="middle" fill="#EEEDFE">3</text>
+        <text font-family="'Playfair Display',serif" font-size="14" font-weight="700" x="90" y="536" fill="#0E0C0A">Sistem Imun Mengamuk</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" x="90" y="554" fill="#534AB7">Sitokin dilepas — radang merebak ke kulit</text>
+
+        <!-- immune scene -->
+        <rect x="110" y="572" width="448" height="126" rx="12" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.5"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="334" y="592" text-anchor="middle" fill="#3C3489">Tindak balas imun dalam aliran darah</text>
+        <!-- 3 immune cells -->
+        <circle cx="184" cy="638" r="20" fill="#7F77DD" opacity=".85"/>
+        <circle cx="184" cy="638" r="11" fill="#EEEDFE" opacity=".8"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="184" y="642" text-anchor="middle" fill="#3C3489">imun</text>
+        <line x1="200" y1="627" x2="246" y2="616" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="4 3" class="fl" style="animation-direction:reverse"/>
+        <line x1="202" y1="638" x2="254" y2="638" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="4 3" class="fl" style="animation-direction:reverse;animation-delay:.3s"/>
+
+        <circle cx="334" cy="634" r="20" fill="#7F77DD" opacity=".85"/>
+        <circle cx="334" cy="634" r="11" fill="#EEEDFE" opacity=".8"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="334" y="638" text-anchor="middle" fill="#3C3489">imun</text>
+        <line x1="350" y1="622" x2="396" y2="611" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="4 3" class="fl" style="animation-direction:reverse;animation-delay:.6s"/>
+        <line x1="352" y1="634" x2="404" y2="634" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="4 3" class="fl" style="animation-direction:reverse;animation-delay:.9s"/>
+
+        <circle cx="484" cy="638" r="20" fill="#7F77DD" opacity=".85"/>
+        <circle cx="484" cy="638" r="11" fill="#EEEDFE" opacity=".8"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="484" y="642" text-anchor="middle" fill="#3C3489">imun</text>
+
+        <!-- toxin targets -->
+        <circle cx="254" cy="619" r="8" fill="#EF9F27" opacity=".8" class="pd"/>
+        <circle cx="264" cy="638" r="7" fill="#EF9F27" opacity=".75" class="pd" style="animation-delay:.4s"/>
+        <circle cx="404" cy="614" r="8" fill="#EF9F27" opacity=".8" class="pd" style="animation-delay:.2s"/>
+        <circle cx="408" cy="634" r="7" fill="#EF9F27" opacity=".75" class="pd" style="animation-delay:.6s"/>
+
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="334" y="686" text-anchor="middle" fill="#712B13">Radang tidak terhad di usus — ia merebak ke kulit!</text>
+
+        <!-- arrow 3→4 -->
+        <line x1="340" y1="702" x2="340" y2="730" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- STEP 4 -->
+        <circle cx="58" cy="754" r="19" fill="#E24B4A"/>
+        <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" x="58" y="759" text-anchor="middle" fill="#FCEBEB">4</text>
+        <text font-family="'Playfair Display',serif" font-size="14" font-weight="700" x="90" y="748" fill="#0E0C0A">Hormon Turut Terganggu</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" x="90" y="766" fill="#E24B4A">Androgen, Insulin &amp; Kortisol naik</text>
+
+        <!-- hormone cards 3 -->
+        <!-- Androgen -->
+        <rect x="110" y="784" width="136" height="118" rx="12" fill="#FCEBEB" stroke="#E24B4A" stroke-width="1.5"/>
+        <polygon points="178,804 191,812 191,826 178,833 165,826 165,812" fill="#F09595" stroke="#A32D2D" stroke-width="1"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="178" y="822" text-anchor="middle" fill="#791F1F">A</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="700" x="178" y="848" text-anchor="middle" fill="#A32D2D">Androgen ↑</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="178" y="864" text-anchor="middle" fill="#791F1F">Kelenjar minyak</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="178" y="878" text-anchor="middle" fill="#791F1F">aktif berlebihan</text>
+        <ellipse cx="161" cy="896" rx="5" ry="8" fill="#EF9F27" opacity=".6"/>
+        <ellipse cx="178" cy="900" rx="5" ry="8" fill="#EF9F27" opacity=".7"/>
+        <ellipse cx="195" cy="896" rx="5" ry="8" fill="#EF9F27" opacity=".6"/>
+        <!-- Insulin -->
+        <rect x="262" y="784" width="156" height="118" rx="12" fill="#FBF3DC" stroke="#BA7517" stroke-width="1.5"/>
+        <polygon points="340,804 353,812 353,826 340,833 327,826 327,812" fill="#FAC775" stroke="#854F0B" stroke-width="1"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="340" y="822" text-anchor="middle" fill="#633806">I</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="700" x="340" y="848" text-anchor="middle" fill="#854F0B">Insulin ↑</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="340" y="864" text-anchor="middle" fill="#633806">Gula → lebih</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="340" y="878" text-anchor="middle" fill="#633806">androgen</text>
+        <rect x="316" y="890" width="14" height="14" rx="3" fill="#FAC775" stroke="#BA7517" stroke-width="1"/>
+        <rect x="333" y="890" width="14" height="14" rx="3" fill="#FAC775" stroke="#BA7517" stroke-width="1"/>
+        <rect x="350" y="890" width="14" height="14" rx="3" fill="#FAC775" stroke="#BA7517" stroke-width="1"/>
+        <!-- Kortisol -->
+        <rect x="434" y="784" width="136" height="118" rx="12" fill="#FAECE7" stroke="#D85A30" stroke-width="1.5"/>
+        <polygon points="502,804 515,812 515,826 502,833 489,826 489,812" fill="#F0997B" stroke="#993C1D" stroke-width="1"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="502" y="822" text-anchor="middle" fill="#712B13">K</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="700" x="502" y="848" text-anchor="middle" fill="#993C1D">Kortisol ↑</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="502" y="864" text-anchor="middle" fill="#712B13">Stress kronik</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="502" y="878" text-anchor="middle" fill="#712B13">kulit lemah</text>
+        <polyline points="480,892 490,884 500,896 510,884 520,896 530,884" fill="none" stroke="#D85A30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- arrow 4→result -->
+        <line x1="340" y1="912" x2="340" y2="940" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- RESULT -->
+        <rect x="110" y="950" width="448" height="150" rx="16" fill="#0E0C0A" stroke="#C9941A" stroke-width="2"/>
+        <text font-family="'Playfair Display',serif" font-size="16" font-weight="700" x="334" y="978" text-anchor="middle" fill="#FAF7F2">Kesan pada Kulit</text>
+        <!-- skin layers -->
+        <rect x="130" y="990" width="408" height="26" rx="0" fill="url(#sg)" opacity=".9"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="334" y="1006" text-anchor="middle" fill="#4A1B0C">epidermis (lapisan luar kulit)</text>
+        <rect x="130" y="1016" width="408" height="22" rx="0" fill="#D4907A" opacity=".6"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="334" y="1030" text-anchor="middle" fill="#4A1B0C">dermis</text>
+        <!-- pimple -->
+        <ellipse cx="214" cy="986" rx="18" ry="15" fill="#E24B4A" opacity=".85" class="pd"/>
+        <ellipse cx="214" cy="983" rx="10" ry="8" fill="#F7C1C1"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="214" y="1056" text-anchor="middle" fill="#F09595">Jerawat</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="214" y="1070" text-anchor="middle" fill="#F09595">&amp; Acne</text>
+        <!-- eczema -->
+        <rect x="304" y="988" width="60" height="13" rx="3" fill="#D85A30" opacity=".7" class="pd" style="animation-delay:.5s"/>
+        <rect x="312" y="1001" width="44" height="9" rx="3" fill="#D85A30" opacity=".5" class="pd" style="animation-delay:.8s"/>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="334" y="1056" text-anchor="middle" fill="#F0997B">Eczema</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="334" y="1070" text-anchor="middle" fill="#F0997B">&amp; Psoriasis</text>
+        <!-- dull -->
+        <rect x="400" y="990" width="118" height="26" rx="0" fill="#B4B2A9" opacity=".45"/>
+        <text font-family="'DM Sans',sans-serif" font-size="9" x="459" y="1006" text-anchor="middle" fill="#D3D1C7">kusam</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="459" y="1056" text-anchor="middle" fill="#888780">Kulit Kusam</text>
+        <text font-family="'DM Sans',sans-serif" font-size="10" x="459" y="1070" text-anchor="middle" fill="#888780">&amp; Gelap</text>
+
+        <!-- SYNA solution box -->
+        <rect x="110" y="1086" width="448" height="54" rx="12" fill="#1A8A6E"/>
+        <text font-family="'Playfair Display',serif" font-size="13" font-weight="700" x="334" y="1107" text-anchor="middle" fill="#E0F5EF">✦ BIOMEX SYNA Menyerang Punca Di Sini ✦</text>
+        <text font-family="'DM Sans',sans-serif" font-size="11" x="334" y="1128" text-anchor="middle" fill="rgba(224,245,239,.7)">Pulih usus → padam radang → kulit cerah semula jadi</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients-section">
+  <div class="container-wide">
+    <span class="section-label reveal">Formula Eksklusif</span>
+    <h2 class="reveal">6 Bahan Saintifik<br/>dalam <em>Setiap Sachet SYNA</em></h2>
+    <p class="intro reveal">Setiap bahan dipilih kerana peranannya yang spesifik — bukan sekadar campuran biasa. Ini formula yang bekerja bersama-sama untuk satu matlamat: kulit cantik melalui usus sihat.</p>
+    <div class="ing-grid">
+
+      <div class="ing-card reveal reveal-delay-1">
+        <div class="ing-icon" style="background:rgba(26,138,110,.15)">🌿</div>
+        <h3>Galakto-Oligosakarida (GOS)</h3>
+        <div class="ing-sub">Prebiotik Premium</div>
+        <p>GOS adalah "makanan mewah" untuk bakteria baik dalam usus. Ia menggalakkan pertumbuhan Lactobacillus &amp; Bifidobacterium — bakteria yang menghasilkan serotonin, GABA, dan memulihkan dinding usus yang bocor. Tanpa GOS, probiotik tidak dapat hidup lama dalam usus.</p>
+        <span class="ing-badge badge-gut">Pulih Usus</span>
+        <span class="ing-badge badge-skin">Kawal Radang</span>
+      </div>
+
+      <div class="ing-card reveal reveal-delay-2">
+        <div class="ing-icon" style="background:rgba(240,153,123,.15)">🍍</div>
+        <h3>Pineapple Powder</h3>
+        <div class="ing-sub">Enzim Bromelain + Vitamin C</div>
+        <p>Nanas mengandungi bromelain — enzim berkuasa yang membantu memecahkan protein dan mengurangkan radang dalam usus. Vitamin C dalam nanas pula adalah kofaktor penting untuk sintesis kolagen, menjadikan kulit lebih anjal, cerah, dan lembap.</p>
+        <span class="ing-badge badge-glow">Cerahkan Kulit</span>
+        <span class="ing-badge badge-gut">Kawal Radang</span>
+      </div>
+
+      <div class="ing-card reveal reveal-delay-3">
+        <div class="ing-icon" style="background:rgba(127,119,221,.15)">🌵</div>
+        <h3>Mucosave® FG</h3>
+        <div class="ing-sub">Paten Eksklusif — Lindungi Mukosa Usus</div>
+        <p>Mucosave® FG adalah bahan paten dari ekstrak kaktus opuntia &amp; zaitun. Ia membentuk lapisan pelindung di dinding mukosa usus — mengurangkan radang, mencegah toksin meresap ke darah, dan memulihkan "pagar" usus yang bocor. Kunci utama untuk hentikan Leaky Gut.</p>
+        <span class="ing-badge badge-repair">Tutup Usus Bocor</span>
+        <span class="ing-badge badge-gut">Mukosa Sihat</span>
+      </div>
+
+      <div class="ing-card reveal reveal-delay-1">
+        <div class="ing-icon" style="background:rgba(240,153,123,.15)">💪</div>
+        <h3>L-Glutamine</h3>
+        <div class="ing-sub">Asid Amino Pembaikan Usus</div>
+        <p>L-Glutamine adalah bahan bakar utama untuk sel-sel yang melapisi dinding usus. Apabila usus rosak, sel-sel ini memerlukan L-Glutamine untuk memperbaiki dan membina semula dinding usus dengan cepat. Ia juga membantu mengurangkan permeabiliti usus — menghentikan toksin daripada meresap masuk ke darah.</p>
+        <span class="ing-badge badge-repair">Baiki Dinding Usus</span>
+        <span class="ing-badge badge-skin">Kurangi Jerawat</span>
+      </div>
+
+      <div class="ing-card reveal reveal-delay-2">
+        <div class="ing-icon" style="background:rgba(201,148,26,.15)">🌾</div>
+        <h3>Rice Ceramide</h3>
+        <div class="ing-sub">Kelembapan &amp; Penghalang Kulit</div>
+        <p>Ceramide dari beras bekerja pada dua peringkat — dari dalam (membantu usus menyerap nutrien penting untuk kulit) dan dari luar (memulihkan lapisan pelindung kulit). Ia membantu mengunci kelembapan, mengurangkan kulit kering, dan menjadikan tekstur kulit lebih halus dan gebu.</p>
+        <span class="ing-badge badge-glow">Kulit Lembap</span>
+        <span class="ing-badge badge-skin">Lindungi Kulit</span>
+      </div>
+
+      <div class="ing-card reveal reveal-delay-3">
+        <div class="ing-icon" style="background:rgba(201,148,26,.2)">🦐</div>
+        <h3>Astaxanthin</h3>
+        <div class="ing-sub">Antioksidan 6000× Lebih Kuat dari Vitamin C</div>
+        <p>Astaxanthin adalah antioksidan paling berkuasa di dunia — 6,000 kali lebih kuat daripada Vitamin C dan 550 kali lebih kuat daripada Vitamin E. Ia melindungi sel kulit dari kerosakan radikal bebas, mengurangkan tanda-tanda penuaan, mencerahkan warna kulit, dan mengurangkan keradangan yang menyebabkan jerawat.</p>
+        <span class="ing-badge badge-glow">Anti-Penuaan</span>
+        <span class="ing-badge badge-skin">Cerahkan Kulit</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OFFER & PRICE -->
+<section class="offer-section">
+  <div class="container">
+    <span class="section-label reveal" style="color:var(--gold)">Tawaran Eksklusif</span>
+    <h2 class="reveal">Mula Perjalanan<br/><em>Kulit Cantik Anda</em></h2>
+    <p class="lead reveal">Formula saintifik. Bahan premium. Harga yang berpatutan untuk hasil yang anda impikan.</p>
+
+    <div class="price-card reveal">
+      <span class="price-label">BIOMEX SYNA</span>
+      <div class="price-main"><sup>RM</sup>129</div>
+      <p class="price-sub">1 kotak • 10 sachet • Bekalan 10 hari</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span>GOS Prebiotik Premium — makan untuk bakteria baik anda</li>
+        <li><span class="check">✓</span>Mucosave® FG — bahan paten tutup usus bocor</li>
+        <li><span class="check">✓</span>L-Glutamine — baiki dinding usus dengan pantas</li>
+        <li><span class="check">✓</span>Astaxanthin 6000× lebih kuat dari Vitamin C</li>
+        <li><span class="check">✓</span>Rice Ceramide — kulit lembap &amp; terlindungi</li>
+        <li><span class="check">✓</span>Pineapple Powder — kolagen + kawal radang</li>
+      </ul>
+      <a href="https://www.biomex.my/" target="_blank" class="btn-buy">Beli Sekarang di BIOMEX.MY →</a>
+    </div>
+
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:.8rem">Ada soalan? Hubungi kami terus —</p>
+    <a href="https://wa.me/601175930133" target="_blank" class="offer-wa">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Kami: +601175930133
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="container-wide">
+    <span class="section-label reveal" style="color:var(--gold)">Apa Kata Mereka</span>
+    <h2 class="reveal">Ribuan Pelanggan Sudah<br/><em>Rasa Perbezaannya</em></h2>
+    <p class="lead reveal">Hasil nyata dari pelanggan sebenar yang telah mencuba BIOMEX SYNA.</p>
+    <div class="testi-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p>"Dalam masa 2 minggu, jerawat saya berkurang banyak. Perut pun tak kembung lagi. Dah lama cari produk yang betul-betul berkesan dari dalam!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">🌸</div>
+          <div><div class="testi-name">Nur Syafiqah</div><div class="testi-loc">Kuala Lumpur</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p>"Kulit saya dah lama kusam walaupun pakai skincare mahal. Selepas minum SYNA, ada kawan tanya kenapa muka nampak cerah. Terharu sangat!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">✨</div>
+          <div><div class="testi-name">Aisyah Razali</div><div class="testi-loc">Johor Bahru</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="stars">★★★★★</div>
+        <p>"Saya ada masalah IBS dan jerawat hormon. SYNA membantu kedua-duanya. Perut lebih selesa, muka lebih bersih. Definitely akan repeat order!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">💚</div>
+          <div><div class="testi-name">Farah Nadia</div><div class="testi-loc">Petaling Jaya</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="background:var(--deep);padding:5rem 2rem;text-align:center">
+  <div class="container">
+    <span class="section-label reveal">Jangan Tunggu Lagi</span>
+    <h2 class="reveal serif" style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;font-weight:900;letter-spacing:-.03em;color:var(--white);margin-bottom:1rem">Kulit Cerah Bermula<br/><em style="color:var(--gold-light)">Dari Satu Sachet</em></h2>
+    <p class="reveal" style="color:rgba(255,255,255,.5);font-size:1rem;font-weight:300;max-width:480px;margin:0 auto 2.5rem">Hentikan kitaran jerawat &amp; kulit kusam. Baiki usus anda — dan kulit akan mengikut.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal">
+      <a href="https://www.biomex.my/" target="_blank" class="btn-primary" style="background:var(--gold)">Beli Sekarang — RM129</a>
+      <a href="https://wa.me/601175930133" target="_blank" class="btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Kami
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer">
+  <p><strong>Penafian:</strong> Dokumen pengelasan produk BIOMEX SYNA telah diperolehi daripada Bahagian Regulatori Farmasi Negara, KKM (No. Siri: 060526/04/180). Produk ini adalah makanan tambahan dan bukan ubat. Ia tidak bertujuan untuk mendiagnosis, merawat, menyembuhkan, atau mencegah sebarang penyakit. Hasil mungkin berbeza mengikut individu. Sila rujuk doktor sebelum penggunaan jika anda hamil, menyusu, atau mengambil ubat-ubatan tertentu.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">BIOMEX <span>SYNA</span></div>
+  <p>Cantik Dari Dalam — Melalui Sains Kesihatan Usus</p>
+  <p style="margin-top:.8rem">© 2026 BIOMEX Marketing · No 3, Jalan 6, Taman Subang Perdana, 40150 Shah Alam, Selangor</p>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/601175930133" target="_blank" class="float-wa" title="WhatsApp Kami">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const obs = new IntersectionObserver(e=>{
+  e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
